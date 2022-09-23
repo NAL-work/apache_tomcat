@@ -27,7 +27,7 @@ pipeline {
         stage('SAST') {
             environment {
                 SCANNER_HOME = tool 'SonarQube'
-                PROJECT_NAME = "${env.JOB_NAME}"
+                PROJECT_NAME = "${env.JOB_NAME}".replaceAll( ' ', '_' )
                 
             }
             steps {
