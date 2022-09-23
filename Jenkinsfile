@@ -28,11 +28,14 @@ pipeline {
             environment {
                 SCANNER_HOME = tool 'SonarQube'
                 PROJECT_NAME = "${env.JOB_NAME}"
+                
             }
             steps {
+                echo "${PROJECT_NAME}"
+                echo "${env.JOB_NAME}"
                 withSonarQubeEnv('sonarqube') {
                     sh '''${SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectKey=$PROJECT_NAME'''
+                        -Dsonar.projectKey="$PROJECT_NAME"'''
                 }
             }
         }
