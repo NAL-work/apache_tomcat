@@ -12,6 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build stub'
+                sh "ant"
             }
         }
         stage ('SCA') {
@@ -30,7 +31,7 @@ pipeline {
                 PROJECT_NAME = "${env.JOB_NAME}".replaceAll( ' ', '_' )
                 
             }
-            steps {
+            steps {sh
                 echo "${PROJECT_NAME}"
                 echo "${env.JOB_NAME}"
                 withSonarQubeEnv('sonarqube') {
