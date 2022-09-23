@@ -12,7 +12,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build stub'
-                sh "ant"
+                withAnt(installation: 'LocalAnt') {
+                    sh "ant build"
+                }
             }
         }
         stage ('SCA') {
