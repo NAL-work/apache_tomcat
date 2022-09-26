@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Build stub'
                 withAnt(installation: 'ant') {
-                    sh "ant"
+                    sh "ant clean build-prepare compile-prepare compile"
                 }
             }
         }
