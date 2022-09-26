@@ -33,7 +33,7 @@ pipeline {
                 PROJECT_NAME = "${env.JOB_NAME}".replaceAll( ' ', '_' )
                 
             }
-            steps {sh
+            steps {
                 echo "${PROJECT_NAME}"
                 echo "${env.JOB_NAME}"
                 withSonarQubeEnv('sonarqube') {
