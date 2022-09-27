@@ -38,8 +38,10 @@ pipeline {
                 echo "${env.JOB_NAME}"
                 withSonarQubeEnv('sonarqube') {
                     sh '''${SCANNER_HOME}/bin/sonar-scanner \
+                        -X \
                         -Dsonar.projectKey=${PROJECT_NAME} \
-                        -Dsonar.java.binaries=**/target/classes'''
+                        -Dsonar.java.binaries=**/target/classes \
+                        -Dsonar.exclusions=**/*.xml'''
                 }
             }
         }
