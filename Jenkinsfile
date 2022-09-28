@@ -40,9 +40,10 @@ pipeline {
                     sh '''${SCANNER_HOME}/bin/sonar-scanner \
                         -X -e \
                         -Dsonar.projectKey=${PROJECT_NAME} \
-                        -Dsonar.java.binaries=**/target/classes \
+                        -Dsonar.java.binaries="webapps/examples/WEB-INF/lib, res/META-INF" \
                         -Dsonar.exclusions="**/*.xml, **/*.class, **/test/*" \
                         -Dsonar.java.libraries=**/modules'''
+                        //-Dsonar.java.binaries=**/target/classes \
                 }
             }
         }
