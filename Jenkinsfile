@@ -41,7 +41,8 @@ pipeline {
                         -X -e \
                         -Dsonar.projectKey=${PROJECT_NAME} \
                         -Dsonar.java.binaries=**/target/classes \
-                        -Dsonar.exclusions="**/*.xml, **/*.class, **/test/*"'''
+                        -Dsonar.exclusions="**/*.xml, **/*.class, **/test/*" \
+                        -Dsonar.java.libraries=**/modules'''
                 }
             }
         }
